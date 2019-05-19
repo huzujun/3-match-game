@@ -8,7 +8,7 @@
 
 完成 grid (表格) 构建，搭建大致框架
 
-![5.19.18](screenshot\5.19.18.png)
+![5.19.18](https://github.com/huzujun/3-match-game/blob/master/screenshot/5.19.18.png)
 
 ## 参考资料：
 
