@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/SettingMenu.gd" type="Script" id=1]
-[ext_resource path="res://art/UI/godot match 3 settings bar.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/Make Color Bomb Button.png" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/Sound Button 2.png" type="Texture" id=4]
-[ext_resource path="res://art/UI/Buttons/Back Button.png" type="Texture" id=5]
-
+[ext_resource path="res://art/UI/Buttons/Sound Button 2.png" type="Texture" id=2]
+[ext_resource path="res://art/UI/Buttons/Sound Off Button 2.png" type="Texture" id=3]
+[ext_resource path="res://art/setting.png" type="Texture" id=4]
+[ext_resource path="res://art/更多.png" type="Texture" id=5]
+[ext_resource path="res://art/back.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "slide_in"
@@ -27,6 +27,8 @@ tracks/0/keys = {
 offset = Vector2( 576, 0 )
 transform = Transform2D( 1, 0, 0, 1, 576, 0 )
 script = ExtResource( 1 )
+sound_on = ExtResource( 2 )
+sound_off = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -47,44 +49,45 @@ custom_constants/separation = 30
 margin_right = 536.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 488, 488 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
 [node name="Button" type="VBoxContainer" parent="MarginContainer/Graphic and button"]
 margin_top = 518.0
 margin_right = 536.0
-margin_bottom = 913.0
+margin_bottom = 847.0
 custom_constants/separation = 20
 
 [node name="theme" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
 margin_right = 536.0
 margin_bottom = 99.0
 rect_min_size = Vector2( 512, 99 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
 [node name="sound" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
 margin_top = 119.0
 margin_right = 536.0
-margin_bottom = 247.0
-rect_min_size = Vector2( 128, 128 )
-texture_normal = ExtResource( 4 )
+margin_bottom = 229.0
+rect_min_size = Vector2( 110, 110 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
 [node name="back" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
-margin_top = 267.0
+margin_top = 249.0
 margin_right = 536.0
-margin_bottom = 395.0
-rect_min_size = Vector2( 512, 128 )
-texture_normal = ExtResource( 5 )
+margin_bottom = 329.0
+rect_min_size = Vector2( 400, 80 )
+texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = SubResource( 1 )
+[connection signal="sound_change" from="." to="." method="_on_SettingMenu_sound_change"]
 [connection signal="pressed" from="MarginContainer/Graphic and button/Button/theme" to="." method="_on_theme_pressed"]
 [connection signal="pressed" from="MarginContainer/Graphic and button/Button/sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="MarginContainer/Graphic and button/Button/back" to="." method="_on_back_pressed"]

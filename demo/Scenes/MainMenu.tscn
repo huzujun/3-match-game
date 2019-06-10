@@ -1,10 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://art/UI/godot match 3 logo.png" type="Texture" id=2]
-[ext_resource path="res://art/UI/Buttons/play.jpg" type="Texture" id=3]
-[ext_resource path="res://art/UI/Buttons/setting.jpg" type="Texture" id=4]
-
+[ext_resource path="res://art/title.png" type="Texture" id=2]
+[ext_resource path="res://art/开始.png" type="Texture" id=3]
+[ext_resource path="res://art/设置.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "slide_in"
@@ -29,28 +28,28 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
-custom_constants/margin_top = 20
+custom_constants/margin_top = 190
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
 [node name="Graphic and button" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 20.0
-margin_top = 20.0
+margin_top = 190.0
 margin_right = 556.0
 margin_bottom = 1004.0
-custom_constants/separation = 30
+custom_constants/separation = 70
 
 [node name="graphic" type="TextureRect" parent="MarginContainer/Graphic and button"]
 margin_right = 536.0
-margin_bottom = 512.0
-rect_min_size = Vector2( 512, 512 )
+margin_bottom = 200.0
+rect_min_size = Vector2( 512, 200 )
 texture = ExtResource( 2 )
 expand = true
 
 [node name="button" type="VBoxContainer" parent="MarginContainer/Graphic and button"]
-margin_top = 542.0
+margin_top = 270.0
 margin_right = 536.0
-margin_bottom = 938.0
+margin_bottom = 666.0
 custom_constants/separation = 20
 
 [node name="play" type="TextureButton" parent="MarginContainer/Graphic and button/button"]

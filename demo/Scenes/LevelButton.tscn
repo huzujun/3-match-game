@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Script/LevelButton.gd" type="Script" id=1]
+[ext_resource path="res://art/UI/Level Select/Red Button.png" type="Texture" id=2]
+[ext_resource path="res://art/UI/Level Select/Green Button 2.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/Level Select/Star Filled.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/Level Select/Star Blank.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/kenney_blocks.tres" type="DynamicFont" id=6]
+
+[node name="LevelButton" type="Node2D"]
+script = ExtResource( 1 )
+blocked_texture = ExtResource( 2 )
+open_texture = ExtResource( 3 )
+goal_met = ExtResource( 4 )
+goal_not_met = ExtResource( 5 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -50.35
+margin_top = -49.4
+margin_right = 46.65
+margin_bottom = 47.6
+texture_normal = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = 22.1
+margin_top = 7.70001
+margin_right = 82.1
+margin_bottom = 83.7
+custom_fonts/font = ExtResource( 6 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 72 )
+texture = ExtResource( 5 )
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

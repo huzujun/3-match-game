@@ -5,7 +5,6 @@
 [ext_resource path="res://Scenes/SettingMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/UI/Buttons/background.jpg" type="Texture" id=4]
 
-
 [node name="Menu" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -21,6 +20,8 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 576, 1024 )
 texture = ExtResource( 4 )
 expand = true
+[connection signal="read_sound" from="." to="SettingMenu" method="_on_Menu_read_sound"]
 [connection signal="play_pressed" from="MainMenu" to="." method="_on_MainMenu_play_pressed"]
 [connection signal="settings_pressed" from="MainMenu" to="." method="_on_MainMenu_settings_pressed"]
 [connection signal="back_button" from="SettingMenu" to="." method="_on_SettingMenu_back_button"]
+[connection signal="sound_change" from="SettingMenu" to="." method="_on_SettingMenu_sound_change"]
