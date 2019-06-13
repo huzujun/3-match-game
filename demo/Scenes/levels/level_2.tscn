@@ -9,8 +9,10 @@
 [node name="grid" parent="." index="1"]
 width = 6
 height = 6
-x_start = 200
-y_start = 600
+x_start = 140
+y_start = 700
+max_score = 50
+game_time = 30
 
 [node name="top_UI" parent="." index="5"]
 current_level = 2
@@ -18,3 +20,4 @@ current_level = 2
 [node name="Goal" parent="GoalHolder" index="0" instance=ExtResource( 2 )]
 goal_texture = ExtResource( 3 )
 max_needed = 3
+goal_string = "Danish"

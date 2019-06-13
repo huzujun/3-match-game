@@ -6,7 +6,7 @@ func slide_out():
 	$AnimationPlayer.play_backwards("slide_in")
 	
 func _on_Quit_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://Scenes/LevelSelectScene.tscn")
 
 func _on_Continue_pressed():
 	get_tree().paused = false

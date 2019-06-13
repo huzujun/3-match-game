@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _on_Quit_pressed():
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+	get_tree().change_scene("res://Scenes/LevelSelectScene.tscn")
 
 
 func _on_Restart_pressed():

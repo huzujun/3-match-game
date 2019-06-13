@@ -32,10 +32,12 @@ var current_level
 func _on_top_UI_notify_of_level(level):
 	current_level = level
 
-func _on_grid_game_win(a):
-	GameDataManager.level_info[current_level]["star unlocked"] = true
+func _on_grid_game_win(score):
+	GameDataManager.level_info[current_level]["stars_unlocked"] = true
+	GameDataManager.level_info[current_level]["high_score"] = max(score, GameDataManager.level_info[current_level]["high_score"])
 	GameDataManager.level_info[current_level + 1]={
 		"unlocked": true,
 		"high_score": 0,
 		"stars_unlocked": false
 	}
+	GameDataManager.save_data()

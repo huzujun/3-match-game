@@ -13,8 +13,6 @@ onready var path = "user://save.dat"
 func _ready():
 	level_info = load_data()
 
-
-
 func save_data():
 	var file = File.new()
 	var err = file.open(path, File.WRITE)
