@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal play_pressed
 signal settings_pressed
+signal help
 
 func slide_in():
 	$AnimationPlayer.play("slide_in")
@@ -14,3 +15,7 @@ func _on_play_pressed():
 	
 func _on_setting_pressed():
 	emit_signal("settings_pressed")
+
+
+func _on_help_pressed():
+	emit_signal("help")

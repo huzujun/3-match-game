@@ -1,20 +1,22 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://art/Background@2x.png" type="Texture" id=1]
 [ext_resource path="res://Script/grid.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/top_UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Script/top_UI.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GoalPrefab.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GameOverPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Script/GoalHolder.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=8]
-[ext_resource path="res://art/cookies/Cupcake.png" type="Texture" id=9]
-[ext_resource path="res://art/cookies/Danish.png" type="Texture" id=10]
+[ext_resource path="res://Script/GoalHolder.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/cookies/Cupcake.png" type="Texture" id=8]
+[ext_resource path="res://art/cookies/Danish.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/GameOverPanel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Game Win Screen.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/button_ui.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/button_ui.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Script/MusicPlayer.gd" type="Script" id=14]
 
 [node name="game_window" type="Node2D"]
+position = Vector2( -1, 0 )
 
 [node name="background" type="TextureRect" parent="."]
 margin_right = 640.0
@@ -35,7 +37,7 @@ max_score = 200
 piece_value = 5
 
 [node name="destroy_timer" type="Timer" parent="."]
-wait_time = 0.16
+wait_time = 0.17
 one_shot = true
 
 [node name="collapse_timer" type="Timer" parent="."]
@@ -58,32 +60,36 @@ goal_prefab = ExtResource( 5 )
 [node name="game_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="GameOverPanel" parent="." instance=ExtResource( 6 )]
-
 [node name="GoalHolder" type="Node" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
-[node name="Goal" parent="GoalHolder" instance=ExtResource( 8 )]
-goal_texture = ExtResource( 9 )
+[node name="Goal" parent="GoalHolder" instance=ExtResource( 7 )]
+goal_texture = ExtResource( 8 )
 max_needed = 5
 goal_string = "Cupcake"
 
-[node name="Goal2" parent="GoalHolder" instance=ExtResource( 8 )]
-goal_texture = ExtResource( 10 )
+[node name="Goal2" parent="GoalHolder" instance=ExtResource( 7 )]
+goal_texture = ExtResource( 9 )
 max_needed = 3
 goal_string = "Danish"
 
+[node name="GameOverPanel" parent="." instance=ExtResource( 10 )]
+
 [node name="Game Win Screen" parent="." instance=ExtResource( 11 )]
 
-[node name="button_ui" parent="." instance=ExtResource( 12 )]
-
-[node name="Pause" parent="." instance=ExtResource( 13 )]
+[node name="Pause" parent="." instance=ExtResource( 12 )]
 offset = Vector2( 576, 0 )
 transform = Transform2D( 1, 0, 0, 1, 576, 0 )
-[connection signal="check_goal" from="grid" to="top_UI" method="_on_grid_check_goal"]
+
+[node name="button_ui" parent="." instance=ExtResource( 13 )]
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource( 14 )
 [connection signal="check_goal" from="grid" to="GoalHolder" method="_on_grid_check_goal"]
+[connection signal="check_goal" from="grid" to="top_UI" method="_on_grid_check_goal"]
 [connection signal="game_over" from="grid" to="GameOverPanel" method="_on_grid_game_over"]
 [connection signal="last_time" from="grid" to="top_UI" method="_on_grid_last_time"]
+[connection signal="play_sound" from="grid" to="MusicPlayer" method="_on_grid_play_sound"]
 [connection signal="setup_max_score" from="grid" to="top_UI" method="_on_grid_setup_max_score"]
 [connection signal="update_score" from="grid" to="top_UI" method="_on_grid_update_score"]
 [connection signal="timeout" from="destroy_timer" to="grid" method="_on_destroy_timer_timeout"]
@@ -91,8 +97,8 @@ transform = Transform2D( 1, 0, 0, 1, 576, 0 )
 [connection signal="timeout" from="refill_timer" to="grid" method="_on_refill_timer_timeout"]
 [connection signal="timeout" from="game_timer" to="grid" method="_on_game_timer_timeout"]
 [connection signal="create_goal" from="GoalHolder" to="top_UI" method="_on_GoalHolder_create_goal"]
-[connection signal="game_won" from="GoalHolder" to="grid" method="_on_GoalHolder_game_won"]
 [connection signal="game_won" from="GoalHolder" to="Game Win Screen" method="_on_GoalHolder_game_won"]
+[connection signal="game_won" from="GoalHolder" to="grid" method="_on_GoalHolder_game_won"]
 [connection signal="hint" from="button_ui" to="grid" method="_on_button_ui_hint"]
 [connection signal="pause_game" from="button_ui" to="Pause" method="_on_button_ui_pause_game"]
 [connection signal="plus" from="button_ui" to="grid" method="_on_button_ui_plus"]

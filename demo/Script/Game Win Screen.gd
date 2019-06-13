@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var is_out = false
 func slide_in():
 	$AnimationPlayer.play("slide_in")
 	
@@ -10,7 +11,9 @@ func _on_grid_game_over():
 	slide_in()
 
 func _on_ContinueButton_pressed():
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://Scenes/LevelSelectScene.tscn")
 
 func _on_GoalHolder_game_won():
-	slide_in()
+	if is_out == false:
+		is_out = true
+		slide_in()

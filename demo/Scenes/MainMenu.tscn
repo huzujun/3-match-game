@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://art/title.png" type="Texture" id=2]
 [ext_resource path="res://art/开始.png" type="Texture" id=3]
-[ext_resource path="res://art/设置.png" type="Texture" id=4]
+[ext_resource path="res://art/重新开始.png" type="Texture" id=4]
+[ext_resource path="res://art/设置.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "slide_in"
@@ -49,27 +50,37 @@ expand = true
 [node name="button" type="VBoxContainer" parent="MarginContainer/Graphic and button"]
 margin_top = 270.0
 margin_right = 536.0
-margin_bottom = 666.0
+margin_bottom = 640.0
 custom_constants/separation = 20
 
 [node name="play" type="TextureButton" parent="MarginContainer/Graphic and button/button"]
 margin_right = 536.0
-margin_bottom = 188.0
-rect_min_size = Vector2( 512, 188 )
+margin_bottom = 110.0
+rect_min_size = Vector2( 512, 110 )
 texture_normal = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
-[node name="setting" type="TextureButton" parent="MarginContainer/Graphic and button/button"]
-margin_top = 208.0
+[node name="help" type="TextureButton" parent="MarginContainer/Graphic and button/button"]
+margin_top = 130.0
 margin_right = 536.0
-margin_bottom = 396.0
-rect_min_size = Vector2( 512, 188 )
+margin_bottom = 240.0
+rect_min_size = Vector2( 512, 110 )
 texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="setting" type="TextureButton" parent="MarginContainer/Graphic and button/button"]
+margin_top = 260.0
+margin_right = 536.0
+margin_bottom = 370.0
+rect_min_size = Vector2( 512, 110 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/slide_in = SubResource( 1 )
 [connection signal="pressed" from="MarginContainer/Graphic and button/button/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/Graphic and button/button/help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MarginContainer/Graphic and button/button/setting" to="." method="_on_setting_pressed"]

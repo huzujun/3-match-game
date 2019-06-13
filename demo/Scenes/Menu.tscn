@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/SettingMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/UI/Buttons/background.jpg" type="Texture" id=4]
+[ext_resource path="res://art/板1.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/STHUPO.TTF" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="Menu" type="Control"]
 margin_right = 40.0
@@ -20,8 +27,44 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 576, 1024 )
 texture = ExtResource( 4 )
 expand = true
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu"]
+position = Vector2( 294.175, 572.803 )
+scale = Vector2( 0.58773, 1.02612 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PopupMenu"]
+anchor_left = 0.62
+anchor_right = 0.62
+anchor_bottom = 0.83
+margin_left = -4.4
+margin_top = 437.0
+margin_right = 565.6
+margin_bottom = 859.4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "游戏帮助：
+1.	玩法
+拖动一颗甜点并拉动其与相邻甜点进行互换
+如果互换后横排或竖排出现三颗或以上连续
+相同的甜点，则消去相同甜点
+2.	闯关
+每一关游戏都规定了时间、分数以及需要消
+去的甜点种类和数量
+及个数
+3.	道具
+点击游戏下方的延时按钮，分数减五十，游
+戏时间延长十秒。
+"
 [connection signal="read_sound" from="." to="SettingMenu" method="_on_Menu_read_sound"]
+[connection signal="help" from="MainMenu" to="." method="_on_MainMenu_help"]
 [connection signal="play_pressed" from="MainMenu" to="." method="_on_MainMenu_play_pressed"]
 [connection signal="settings_pressed" from="MainMenu" to="." method="_on_MainMenu_settings_pressed"]
 [connection signal="back_button" from="SettingMenu" to="." method="_on_SettingMenu_back_button"]
 [connection signal="sound_change" from="SettingMenu" to="." method="_on_SettingMenu_sound_change"]
+[connection signal="theme_change" from="SettingMenu" to="." method="_on_SettingMenu_theme_change"]
+[connection signal="popup_hide" from="PopupMenu" to="." method="_on_PopupMenu_popup_hide"]

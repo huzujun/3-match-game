@@ -4,8 +4,8 @@
 [ext_resource path="res://art/UI/Buttons/Sound Button 2.png" type="Texture" id=2]
 [ext_resource path="res://art/UI/Buttons/Sound Off Button 2.png" type="Texture" id=3]
 [ext_resource path="res://art/setting.png" type="Texture" id=4]
-[ext_resource path="res://art/更多.png" type="Texture" id=5]
-[ext_resource path="res://art/back.png" type="Texture" id=6]
+[ext_resource path="res://art/返回&主题/主题.png" type="Texture" id=5]
+[ext_resource path="res://art/返回&主题/返回.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "slide_in"
@@ -56,31 +56,31 @@ stretch_mode = 6
 [node name="Button" type="VBoxContainer" parent="MarginContainer/Graphic and button"]
 margin_top = 518.0
 margin_right = 536.0
-margin_bottom = 847.0
+margin_bottom = 888.0
 custom_constants/separation = 20
 
 [node name="theme" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
 margin_right = 536.0
-margin_bottom = 99.0
-rect_min_size = Vector2( 512, 99 )
+margin_bottom = 110.0
+rect_min_size = Vector2( 512, 110 )
 texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
 [node name="sound" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
-margin_top = 119.0
+margin_top = 130.0
 margin_right = 536.0
-margin_bottom = 229.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 110, 110 )
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
 [node name="back" type="TextureButton" parent="MarginContainer/Graphic and button/Button"]
-margin_top = 249.0
+margin_top = 260.0
 margin_right = 536.0
-margin_bottom = 329.0
-rect_min_size = Vector2( 400, 80 )
+margin_bottom = 370.0
+rect_min_size = Vector2( 400, 110 )
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 5

@@ -42,6 +42,9 @@ export (int) var piece_value
 var streak = 1
 var game_timer
 var is_moves
+
+signal play_sound
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state = move
@@ -243,6 +246,7 @@ func destroy_matched():
 					all_pieces[i][j].queue_free()
 					all_pieces[i][j] = null
 					make_effect(partical_effect, i, j)
+					emit_signal("play_sound")
 					emit_signal("update_score", piece_value * streak)
 	move_checked = true
 	if is_moves == 0:

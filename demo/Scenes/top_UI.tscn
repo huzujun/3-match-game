@@ -38,7 +38,7 @@ size_flags_horizontal = 3
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_right = 150.0
-margin_bottom = 30.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
@@ -46,9 +46,9 @@ text = "000"
 align = 1
 
 [node name="TextureProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 34.0
+margin_top = 80.0
 margin_right = 150.0
-margin_bottom = 63.0
+margin_bottom = 109.0
 size_flags_horizontal = 0
 value = 50.0
 texture_under = ExtResource( 3 )

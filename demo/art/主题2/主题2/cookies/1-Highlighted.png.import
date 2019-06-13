@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/1-Highlighted.png-ed45c37ad28153554f1c34d78fc87ef9.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://art/主题2/主题2/cookies/1-Highlighted.png"
+dest_files=[ "res://.import/1-Highlighted.png-ed45c37ad28153554f1c34d78fc87ef9.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
