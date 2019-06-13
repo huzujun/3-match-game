@@ -8,9 +8,12 @@ onready var goal_container = $MarginContainer/HBoxContainer/HBoxContainer
 export (PackedScene) var goal_prefab
 var current_score = 0
 var max_score_value = 100
+export (int) var current_level
+signal notify_of_level
 func _ready():
 	_on_grid_update_score(current_score)
 	setup_score_bar(max_score_value)
+	emit_signal("notify_of_level", current_level)
 
 func _on_grid_update_score(amount_to_change):
 	current_score += amount_to_change

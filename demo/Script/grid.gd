@@ -38,7 +38,9 @@ var hint_effect = preload("res://Scenes/HintEffect.tscn")
 signal update_score
 signal last_time
 signal game_over
+signal game_win
 export (int) var piece_value
+export (int) var game_time
 var streak = 1
 var game_timer
 var is_moves
@@ -54,7 +56,7 @@ func _ready():
 	randomize()
 	spawn_pieces()
 	game_timer = get_parent().get_node("game_timer")
-	game_timer.set_wait_time(30)
+	game_timer.set_wait_time(game_time)
 	is_moves = 0
 	game_timer.start()
 	game_timer.set_paused(true)
@@ -361,13 +363,19 @@ func declare_gameover():
 	emit_signal("game_over")
 	state = wait
 
+func declare_gamewin(score):
+	emit_signal("game_win", score)
+	state = wait
+
 func _on_game_timer_timeout():
-	declare_gameover()
+	if goal_met == false or top_ui.current_score<top_ui.max_score_value:	
+		declare_gameover()
+	else:
+		declare_gamewin(top_ui.current_score)
 	game_timer.stop()
 
 func _on_GoalHolder_game_won():
 	goal_met = true
-	game_timer.stop()
 
 func _on_button_ui_hint():
 	if top_ui.current_score > 10:

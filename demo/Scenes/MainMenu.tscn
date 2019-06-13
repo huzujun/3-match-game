@@ -3,7 +3,7 @@
 [ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://art/title.png" type="Texture" id=2]
 [ext_resource path="res://art/开始.png" type="Texture" id=3]
-[ext_resource path="res://art/重新开始.png" type="Texture" id=4]
+[ext_resource path="res://art/问号.png" type="Texture" id=4]
 [ext_resource path="res://art/设置.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]

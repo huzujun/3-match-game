@@ -13,7 +13,7 @@ func _on_grid_game_over():
 func _on_ContinueButton_pressed():
 	get_tree().change_scene("res://Scenes/LevelSelectScene.tscn")
 
-func _on_GoalHolder_game_won():
-	if is_out == false:
-		is_out = true
-		slide_in()
+onready var label = $"MarginContainer/TextureRect/VBoxContainer/Label"
+func _on_grid_game_win(score):
+	label.text = String(score)
+	slide_in()

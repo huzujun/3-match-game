@@ -14,10 +14,24 @@ export (Texture) var goal_not_met
 onready var level_label = $TextureButton/Label
 onready var button = $TextureButton
 onready var star = $Sprite
-
 func _ready():
+	if GameDataManager.level_info.has(level):
+		score_goal_met = GameDataManager.level_info[level]["stars_unlocked"]
+		enabled = GameDataManager.level_info[level]["unlocked"]
+	else:
+		score_goal_met = false
+		enabled = false
 	setup()
-	
+
+func _process(delta):
+	if GameDataManager.level_info.has(level):
+		score_goal_met = GameDataManager.level_info[level]["stars_unlocked"]
+		enabled = GameDataManager.level_info[level]["unlocked"]
+	else:
+		score_goal_met = false
+		enabled = false
+	setup()
+
 func setup():
 	level_label.text = String(level)
 	if enabled:

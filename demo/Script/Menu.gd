@@ -8,7 +8,7 @@ preload("res://art/主题2/主题2/background2.png"),
 preload("res://art/background.png"),
 ]
 onready var helpMenu = $"PopupMenu"
-var now = 0
+var now = 1
 
 func _ready():
 	$MainMenu.slide_in()

@@ -5,7 +5,12 @@
 [node name="level_1" index="0" instance=ExtResource( 1 )]
 
 [node name="grid" parent="." index="1"]
-width = 4
-height = 4
-x_start = 200
-y_start = 600
+width = 6
+height = 6
+x_start = 140
+y_start = 700
+max_score = 10
+game_time = 2
+
+[node name="top_UI" parent="." index="5"]
+current_level = 1

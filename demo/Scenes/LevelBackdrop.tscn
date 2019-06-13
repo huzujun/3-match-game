@@ -17,19 +17,24 @@ enabled = true
 [node name="2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 492.944, 672.862 )
 level = 2
+level_to_load = "res://Scenes/levels/level_2.tscn"
 
 [node name="3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 309.707, 984.441 )
 level = 3
+level_to_load = "res://Scenes/levels/level_3.tscn"
 
 [node name="4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 511.11, 1244.14 )
 level = 4
+level_to_load = "res://Scenes/levels/level_4.tscn"
 
 [node name="5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 66.0244, 1386.32 )
 level = 5
+level_to_load = "res://Scenes/levels/level_5.tscn"
 
 [node name="6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 495.745, 1798.38 )
 level = 6
+level_to_load = "res://Scenes/levels/level_6.tscn"

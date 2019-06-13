@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 ConfigManager="*res://Script/ConfigManager.gd"
 SoundManager="*res://Scenes/SoundManager.tscn"
+GameDataManager="*res://Script/GameDataManager.gd"
 
 [display]
 
